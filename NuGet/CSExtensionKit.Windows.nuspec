@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CSExtensionKit.Windows</id>
+    <version>0.5.0.0</version>
+    <title>CSExtensionKit v0.5 for Windows</title>
+    <authors>Jose Medrano (@netonjm)</authors>
+    <owners>Jose Medrano</owners>
+    <licenseUrl>https://raw.githubusercontent.com/netonjm/CSExtensionKit/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/netonjm/CSExtensionKit</projectUrl>
+    <iconUrl>http://imagizer.imageshack.us/v2/150x100q90/538/zi8t2q.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CSExtensionKit library for CocosSharp</description>
+    <copyright>netonjm</copyright>
+    <tags>controls cocossharp</tags>
+
+  </metadata>
+
+  <files>
+   
+     <!--Windows DX-->
+    <file src="..\src\CSExtensionKit\win32\bin\Release\CSExtensionKit.dll" target="lib\net40" />
+   
+
+  </files>
+
+</package>

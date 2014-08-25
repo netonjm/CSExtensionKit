@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CSExtensionKit.MacOS</id>
+    <version>0.5.0.0</version>
+    <title>CSExtensionKit for Mac</title>
+    <authors>Jose Medrano(@netonjm)</authors>
+    <owners>Develop Studios</owners>
+    <licenseUrl>https://raw.githubusercontent.com/netonjm/CSExtensionKit/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/netonjm/CSExtensionKit</projectUrl>
+    <iconUrl>http://imagizer.imageshack.us/v2/150x100q90/538/zi8t2q.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CSExtensionKit library for MacOS for CocosSharp</description>
+    <copyright>netonjm</copyright>
+    <tags>CSExtensionKit visualization enginedirectx desktop windows</tags>
+
+  </metadata>
+
+  <files>
+   
+    <file src="/src/CSExtensionKit/macosx/bin/Release/CSExtensionKit.dll" target="lib/net40" />
+   
+
+  </files>
+
+</package>
