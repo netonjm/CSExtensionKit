@@ -1,0 +1,1576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CE52E28-9707-4533-A53D-C67D2FE85FFE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetalSlugGameExample</RootNamespace>
+    <AssemblyName>MetalSlugGameExample</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\WindowsDX\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\WindowsDX\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Common\Entities\Bullet.cs">
+      <Link>Entities\Bullet.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Entities\Enemy.cs">
+      <Link>Entities\Enemy.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Entities\EnemyBase.cs">
+      <Link>Entities\EnemyBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Entities\Hero.cs">
+      <Link>Entities\Hero.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Entities\Tank.cs">
+      <Link>Entities\Tank.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Entities\Truck.cs">
+      <Link>Entities\Truck.cs</Link>
+    </Compile>
+    <Compile Include="..\Common\Levels\IntroLayer.cs">
+      <Link>Levels\IntroLayer.cs</Link>
+    </Compile>
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Panels\InformationPanelLayer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BitMiracle.LibTiff.NET">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="box2d">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\box2d.dll</HintPath>
+    </Reference>
+    <Reference Include="CocosSharp">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\CocosSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework.Net, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\MonoGame.Framework.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.MediaFoundation, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.MediaFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.RawInput, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.RawInput.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.XAudio2.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XInput, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\SharpDX.XInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Resources\carnivorplant.png">
+      <Link>Content\carnivorplant.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\explosives.png">
+      <Link>Content\explosives.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\fps_images-hd.png">
+      <Link>Content\fps_images-hd.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\fps_images-ipadhd.png">
+      <Link>Content\fps_images-ipadhd.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\fps_images.png">
+      <Link>Content\fps_images.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\general.png">
+      <Link>Content\general.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\hero.png">
+      <Link>Content\hero.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 16 at frame 10.png">
+      <Link>Content\Image 16 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 17 at frame 10.png">
+      <Link>Content\Image 17 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 18 at frame 10.png">
+      <Link>Content\Image 18 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 19 at frame 10.png">
+      <Link>Content\Image 19 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 20 at frame 10.png">
+      <Link>Content\Image 20 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 21 at frame 10.png">
+      <Link>Content\Image 21 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 22 at frame 10.png">
+      <Link>Content\Image 22 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 23 at frame 10.png">
+      <Link>Content\Image 23 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 24 at frame 10.png">
+      <Link>Content\Image 24 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 25 at frame 10.png">
+      <Link>Content\Image 25 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 26 at frame 10.png">
+      <Link>Content\Image 26 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 27 at frame 10.png">
+      <Link>Content\Image 27 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 28 at frame 10.png">
+      <Link>Content\Image 28 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 29 at frame 10.png">
+      <Link>Content\Image 29 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 298 at frame 10.png">
+      <Link>Content\Image 298 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 299 at frame 10.png">
+      <Link>Content\Image 299 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 30 at frame 10.png">
+      <Link>Content\Image 30 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 300 at frame 10.png">
+      <Link>Content\Image 300 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 301 at frame 10.png">
+      <Link>Content\Image 301 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 302 at frame 10.png">
+      <Link>Content\Image 302 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 303 at frame 10.png">
+      <Link>Content\Image 303 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 304 at frame 10.png">
+      <Link>Content\Image 304 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 305 at frame 10.png">
+      <Link>Content\Image 305 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 306 at frame 10.png">
+      <Link>Content\Image 306 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 307 at frame 10.png">
+      <Link>Content\Image 307 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 308 at frame 10.png">
+      <Link>Content\Image 308 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 309 at frame 10.png">
+      <Link>Content\Image 309 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 31 at frame 10.png">
+      <Link>Content\Image 31 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 310 at frame 10.png">
+      <Link>Content\Image 310 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 311 at frame 10.png">
+      <Link>Content\Image 311 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 312 at frame 10.png">
+      <Link>Content\Image 312 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 313 at frame 10.png">
+      <Link>Content\Image 313 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 314 at frame 10.png">
+      <Link>Content\Image 314 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 315 at frame 10.png">
+      <Link>Content\Image 315 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 316 at frame 10.png">
+      <Link>Content\Image 316 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 317 at frame 10.png">
+      <Link>Content\Image 317 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 318 at frame 10.png">
+      <Link>Content\Image 318 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 319 at frame 10.png">
+      <Link>Content\Image 319 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 32 at frame 10.png">
+      <Link>Content\Image 32 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 33 at frame 10.png">
+      <Link>Content\Image 33 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 396 at frame 10.png">
+      <Link>Content\Image 396 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 397 at frame 10.png">
+      <Link>Content\Image 397 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 398 at frame 10.png">
+      <Link>Content\Image 398 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 399 at frame 10.png">
+      <Link>Content\Image 399 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 400 at frame 10.png">
+      <Link>Content\Image 400 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 401 at frame 10.png">
+      <Link>Content\Image 401 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 402 at frame 10.png">
+      <Link>Content\Image 402 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 403 at frame 10.png">
+      <Link>Content\Image 403 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 404 at frame 10.png">
+      <Link>Content\Image 404 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 405 at frame 10.png">
+      <Link>Content\Image 405 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 406 at frame 10.png">
+      <Link>Content\Image 406 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 407 at frame 10.png">
+      <Link>Content\Image 407 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 408 at frame 10.png">
+      <Link>Content\Image 408 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 409 at frame 10.png">
+      <Link>Content\Image 409 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 410 at frame 10.png">
+      <Link>Content\Image 410 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 411 at frame 10.png">
+      <Link>Content\Image 411 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 412 at frame 10.png">
+      <Link>Content\Image 412 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 413 at frame 10.png">
+      <Link>Content\Image 413 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 414 at frame 10.png">
+      <Link>Content\Image 414 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 415 at frame 10.png">
+      <Link>Content\Image 415 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 416 at frame 10.png">
+      <Link>Content\Image 416 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 417 at frame 10.png">
+      <Link>Content\Image 417 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 418 at frame 10.png">
+      <Link>Content\Image 418 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 419 at frame 10.png">
+      <Link>Content\Image 419 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 420 at frame 10.png">
+      <Link>Content\Image 420 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 421 at frame 10.png">
+      <Link>Content\Image 421 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 422 at frame 10.png">
+      <Link>Content\Image 422 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 423 at frame 10.png">
+      <Link>Content\Image 423 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 424 at frame 10.png">
+      <Link>Content\Image 424 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 425 at frame 10.png">
+      <Link>Content\Image 425 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 426 at frame 10.png">
+      <Link>Content\Image 426 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 427 at frame 10.png">
+      <Link>Content\Image 427 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 428 at frame 10.png">
+      <Link>Content\Image 428 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 429 at frame 10.png">
+      <Link>Content\Image 429 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 430 at frame 10.png">
+      <Link>Content\Image 430 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 431 at frame 10.png">
+      <Link>Content\Image 431 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 432 at frame 10.png">
+      <Link>Content\Image 432 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 433 at frame 10.png">
+      <Link>Content\Image 433 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 434 at frame 10.png">
+      <Link>Content\Image 434 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 435 at frame 10.png">
+      <Link>Content\Image 435 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 436 alpha channel at frame 10.png">
+      <Link>Content\Image 436 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 436 at frame 10.jpg">
+      <Link>Content\Image 436 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 437 at frame 10.png">
+      <Link>Content\Image 437 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 438 at frame 10.png">
+      <Link>Content\Image 438 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 439 at frame 10.png">
+      <Link>Content\Image 439 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 440 at frame 10.png">
+      <Link>Content\Image 440 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 441 at frame 10.png">
+      <Link>Content\Image 441 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 442 at frame 10.png">
+      <Link>Content\Image 442 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 443 at frame 10.png">
+      <Link>Content\Image 443 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 444 at frame 10.png">
+      <Link>Content\Image 444 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 445 at frame 10.png">
+      <Link>Content\Image 445 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 446 at frame 10.png">
+      <Link>Content\Image 446 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 447 at frame 10.png">
+      <Link>Content\Image 447 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 448 at frame 10.png">
+      <Link>Content\Image 448 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 449 at frame 10.png">
+      <Link>Content\Image 449 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 450 at frame 10.png">
+      <Link>Content\Image 450 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 451 at frame 10.png">
+      <Link>Content\Image 451 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 452 at frame 10.png">
+      <Link>Content\Image 452 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 453 at frame 10.png">
+      <Link>Content\Image 453 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 454 at frame 10.png">
+      <Link>Content\Image 454 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 455 at frame 10.png">
+      <Link>Content\Image 455 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 456 at frame 10.png">
+      <Link>Content\Image 456 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 457 at frame 10.png">
+      <Link>Content\Image 457 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 458 at frame 10.png">
+      <Link>Content\Image 458 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 459 at frame 10.png">
+      <Link>Content\Image 459 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 460 at frame 10.png">
+      <Link>Content\Image 460 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 461 at frame 10.png">
+      <Link>Content\Image 461 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 462 at frame 10.png">
+      <Link>Content\Image 462 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 463 at frame 10.png">
+      <Link>Content\Image 463 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 464 at frame 10.png">
+      <Link>Content\Image 464 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 465 at frame 10.png">
+      <Link>Content\Image 465 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 466 at frame 10.png">
+      <Link>Content\Image 466 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 467 at frame 10.png">
+      <Link>Content\Image 467 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 468 at frame 10.png">
+      <Link>Content\Image 468 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 469 at frame 10.png">
+      <Link>Content\Image 469 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 470 at frame 10.png">
+      <Link>Content\Image 470 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 471 at frame 10.png">
+      <Link>Content\Image 471 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 472 at frame 10.png">
+      <Link>Content\Image 472 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 473 at frame 10.png">
+      <Link>Content\Image 473 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 474 at frame 10.png">
+      <Link>Content\Image 474 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 475 at frame 10.png">
+      <Link>Content\Image 475 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 476 at frame 10.png">
+      <Link>Content\Image 476 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 477 at frame 10.png">
+      <Link>Content\Image 477 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 478 at frame 10.png">
+      <Link>Content\Image 478 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 479 alpha channel at frame 10.png">
+      <Link>Content\Image 479 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 479 at frame 10.jpg">
+      <Link>Content\Image 479 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 480 at frame 10.png">
+      <Link>Content\Image 480 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 481 at frame 10.png">
+      <Link>Content\Image 481 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 482 alpha channel at frame 10.png">
+      <Link>Content\Image 482 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 482 at frame 10.jpg">
+      <Link>Content\Image 482 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 483 at frame 10.png">
+      <Link>Content\Image 483 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 484 at frame 10.png">
+      <Link>Content\Image 484 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 485 alpha channel at frame 10.png">
+      <Link>Content\Image 485 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 485 at frame 10.jpg">
+      <Link>Content\Image 485 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 486 alpha channel at frame 10.png">
+      <Link>Content\Image 486 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 486 at frame 10.jpg">
+      <Link>Content\Image 486 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 487 at frame 10.png">
+      <Link>Content\Image 487 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 488 at frame 10.png">
+      <Link>Content\Image 488 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 489 at frame 10.png">
+      <Link>Content\Image 489 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 490 at frame 10.png">
+      <Link>Content\Image 490 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 491 at frame 10.png">
+      <Link>Content\Image 491 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 492 at frame 10.png">
+      <Link>Content\Image 492 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 493 at frame 10.png">
+      <Link>Content\Image 493 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 494 at frame 10.png">
+      <Link>Content\Image 494 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 495 at frame 10.png">
+      <Link>Content\Image 495 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 496 at frame 10.png">
+      <Link>Content\Image 496 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 507 at frame 10.png">
+      <Link>Content\Image 507 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 508 at frame 10.png">
+      <Link>Content\Image 508 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 509 at frame 10.png">
+      <Link>Content\Image 509 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 510 at frame 10.png">
+      <Link>Content\Image 510 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 511 at frame 10.png">
+      <Link>Content\Image 511 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 512 at frame 10.png">
+      <Link>Content\Image 512 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 513 at frame 10.png">
+      <Link>Content\Image 513 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 514 at frame 10.png">
+      <Link>Content\Image 514 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 515 at frame 10.png">
+      <Link>Content\Image 515 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 516 at frame 10.png">
+      <Link>Content\Image 516 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 517 at frame 10.png">
+      <Link>Content\Image 517 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 518 at frame 10.png">
+      <Link>Content\Image 518 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 519 at frame 10.png">
+      <Link>Content\Image 519 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 520 at frame 10.png">
+      <Link>Content\Image 520 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 521 at frame 10.png">
+      <Link>Content\Image 521 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 522 at frame 10.png">
+      <Link>Content\Image 522 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 715 at frame 10.png">
+      <Link>Content\Image 715 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 716 at frame 10.png">
+      <Link>Content\Image 716 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 717 at frame 10.png">
+      <Link>Content\Image 717 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 718 at frame 10.png">
+      <Link>Content\Image 718 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 719 at frame 10.png">
+      <Link>Content\Image 719 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 720 at frame 10.png">
+      <Link>Content\Image 720 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 721 at frame 10.png">
+      <Link>Content\Image 721 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 722 at frame 10.png">
+      <Link>Content\Image 722 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 723 at frame 10.png">
+      <Link>Content\Image 723 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 816 at frame 10.jpg">
+      <Link>Content\Image 816 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 817 alpha channel at frame 10.png">
+      <Link>Content\Image 817 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 817 at frame 10.jpg">
+      <Link>Content\Image 817 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 818 alpha channel at frame 10.png">
+      <Link>Content\Image 818 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 818 at frame 10.jpg">
+      <Link>Content\Image 818 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 819 alpha channel at frame 10.png">
+      <Link>Content\Image 819 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 819 at frame 10.jpg">
+      <Link>Content\Image 819 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 820 alpha channel at frame 10.png">
+      <Link>Content\Image 820 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 820 at frame 10.jpg">
+      <Link>Content\Image 820 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 821 alpha channel at frame 10.png">
+      <Link>Content\Image 821 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 821 at frame 10.jpg">
+      <Link>Content\Image 821 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 822 alpha channel at frame 10.png">
+      <Link>Content\Image 822 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 822 at frame 10.jpg">
+      <Link>Content\Image 822 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 823 alpha channel at frame 10.png">
+      <Link>Content\Image 823 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 823 at frame 10.jpg">
+      <Link>Content\Image 823 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 824 alpha channel at frame 10.png">
+      <Link>Content\Image 824 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 824 at frame 10.jpg">
+      <Link>Content\Image 824 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 825 alpha channel at frame 10.png">
+      <Link>Content\Image 825 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 825 at frame 10.jpg">
+      <Link>Content\Image 825 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 826 at frame 10.jpg">
+      <Link>Content\Image 826 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 827 alpha channel at frame 10.png">
+      <Link>Content\Image 827 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 827 at frame 10.jpg">
+      <Link>Content\Image 827 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 828 alpha channel at frame 10.png">
+      <Link>Content\Image 828 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 828 at frame 10.jpg">
+      <Link>Content\Image 828 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 829 alpha channel at frame 10.png">
+      <Link>Content\Image 829 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 829 at frame 10.jpg">
+      <Link>Content\Image 829 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 830 alpha channel at frame 10.png">
+      <Link>Content\Image 830 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 830 at frame 10.jpg">
+      <Link>Content\Image 830 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 831 alpha channel at frame 10.png">
+      <Link>Content\Image 831 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 831 at frame 10.jpg">
+      <Link>Content\Image 831 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 832 at frame 10.png">
+      <Link>Content\Image 832 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 833 at frame 10.png">
+      <Link>Content\Image 833 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 834 alpha channel at frame 10.png">
+      <Link>Content\Image 834 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 834 at frame 10.jpg">
+      <Link>Content\Image 834 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 835 alpha channel at frame 10.png">
+      <Link>Content\Image 835 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 835 at frame 10.jpg">
+      <Link>Content\Image 835 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 836 at frame 10.jpg">
+      <Link>Content\Image 836 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 837 alpha channel at frame 10.png">
+      <Link>Content\Image 837 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 837 at frame 10.jpg">
+      <Link>Content\Image 837 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 838 at frame 10.jpg">
+      <Link>Content\Image 838 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 839 at frame 10.png">
+      <Link>Content\Image 839 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 840 at frame 10.png">
+      <Link>Content\Image 840 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 841 at frame 10.png">
+      <Link>Content\Image 841 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 842 at frame 10.png">
+      <Link>Content\Image 842 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 843 at frame 10.png">
+      <Link>Content\Image 843 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 844 at frame 10.png">
+      <Link>Content\Image 844 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 845 at frame 10.png">
+      <Link>Content\Image 845 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 846 at frame 10.png">
+      <Link>Content\Image 846 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 847 at frame 10.jpg">
+      <Link>Content\Image 847 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 848 alpha channel at frame 10.png">
+      <Link>Content\Image 848 alpha channel at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 848 at frame 10.jpg">
+      <Link>Content\Image 848 at frame 10.jpg</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 849 at frame 10.png">
+      <Link>Content\Image 849 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 875 at frame 10.png">
+      <Link>Content\Image 875 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 876 at frame 10.png">
+      <Link>Content\Image 876 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 877 at frame 10.png">
+      <Link>Content\Image 877 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 878 at frame 10.png">
+      <Link>Content\Image 878 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 879 at frame 10.png">
+      <Link>Content\Image 879 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 880 at frame 10.png">
+      <Link>Content\Image 880 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 881 at frame 10.png">
+      <Link>Content\Image 881 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 882 at frame 10.png">
+      <Link>Content\Image 882 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 883 at frame 10.png">
+      <Link>Content\Image 883 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 884 at frame 10.png">
+      <Link>Content\Image 884 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 889 at frame 10.png">
+      <Link>Content\Image 889 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 899 at frame 10.png">
+      <Link>Content\Image 899 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 916 at frame 10.png">
+      <Link>Content\Image 916 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 917 at frame 10.png">
+      <Link>Content\Image 917 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 923 at frame 10.png">
+      <Link>Content\Image 923 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 924 at frame 10.png">
+      <Link>Content\Image 924 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 925 at frame 10.png">
+      <Link>Content\Image 925 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 926 at frame 10.png">
+      <Link>Content\Image 926 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 927 at frame 10.png">
+      <Link>Content\Image 927 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 928 at frame 10.png">
+      <Link>Content\Image 928 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 929 at frame 10.png">
+      <Link>Content\Image 929 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 930 at frame 10.png">
+      <Link>Content\Image 930 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 931 at frame 10.png">
+      <Link>Content\Image 931 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 932 at frame 10.png">
+      <Link>Content\Image 932 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 933 at frame 10.png">
+      <Link>Content\Image 933 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 934 at frame 10.png">
+      <Link>Content\Image 934 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 935 at frame 10.png">
+      <Link>Content\Image 935 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 936 at frame 10.png">
+      <Link>Content\Image 936 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 937 at frame 10.png">
+      <Link>Content\Image 937 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 938 at frame 10.png">
+      <Link>Content\Image 938 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 939 at frame 10.png">
+      <Link>Content\Image 939 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 940 at frame 10.png">
+      <Link>Content\Image 940 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 941 at frame 10.png">
+      <Link>Content\Image 941 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 942 at frame 10.png">
+      <Link>Content\Image 942 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 943 at frame 10.png">
+      <Link>Content\Image 943 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 944 at frame 10.png">
+      <Link>Content\Image 944 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 945 at frame 10.png">
+      <Link>Content\Image 945 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 946 at frame 10.png">
+      <Link>Content\Image 946 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 947 at frame 10.png">
+      <Link>Content\Image 947 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 948 at frame 10.png">
+      <Link>Content\Image 948 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 949 at frame 10.png">
+      <Link>Content\Image 949 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 950 at frame 10.png">
+      <Link>Content\Image 950 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 951 at frame 10.png">
+      <Link>Content\Image 951 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 952 at frame 10.png">
+      <Link>Content\Image 952 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 953 at frame 10.png">
+      <Link>Content\Image 953 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 954 at frame 10.png">
+      <Link>Content\Image 954 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 955 at frame 10.png">
+      <Link>Content\Image 955 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 956 at frame 10.png">
+      <Link>Content\Image 956 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 957 at frame 10.png">
+      <Link>Content\Image 957 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 958 at frame 10.png">
+      <Link>Content\Image 958 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 959 at frame 10.png">
+      <Link>Content\Image 959 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 960 at frame 10.png">
+      <Link>Content\Image 960 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 961 at frame 10.png">
+      <Link>Content\Image 961 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 962 at frame 10.png">
+      <Link>Content\Image 962 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 963 at frame 10.png">
+      <Link>Content\Image 963 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 964 at frame 10.png">
+      <Link>Content\Image 964 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 965 at frame 10.png">
+      <Link>Content\Image 965 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 966 at frame 10.png">
+      <Link>Content\Image 966 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 967 at frame 10.png">
+      <Link>Content\Image 967 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 968 at frame 10.png">
+      <Link>Content\Image 968 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 969 at frame 10.png">
+      <Link>Content\Image 969 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 970 at frame 10.png">
+      <Link>Content\Image 970 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 971 at frame 10.png">
+      <Link>Content\Image 971 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 972 at frame 10.png">
+      <Link>Content\Image 972 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 973 at frame 10.png">
+      <Link>Content\Image 973 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 974 at frame 10.png">
+      <Link>Content\Image 974 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 975 at frame 10.png">
+      <Link>Content\Image 975 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 976 at frame 10.png">
+      <Link>Content\Image 976 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 977 at frame 10.png">
+      <Link>Content\Image 977 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 978 at frame 10.png">
+      <Link>Content\Image 978 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 979 at frame 10.png">
+      <Link>Content\Image 979 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 980 at frame 10.png">
+      <Link>Content\Image 980 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 981 at frame 10.png">
+      <Link>Content\Image 981 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 982 at frame 10.png">
+      <Link>Content\Image 982 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 983 at frame 10.png">
+      <Link>Content\Image 983 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 984 at frame 10.png">
+      <Link>Content\Image 984 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 985 at frame 10.png">
+      <Link>Content\Image 985 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 986 at frame 10.png">
+      <Link>Content\Image 986 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 987 at frame 10.png">
+      <Link>Content\Image 987 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 988 at frame 10.png">
+      <Link>Content\Image 988 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 989 at frame 10.png">
+      <Link>Content\Image 989 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 990 at frame 10.png">
+      <Link>Content\Image 990 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 991 at frame 10.png">
+      <Link>Content\Image 991 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 992 at frame 10.png">
+      <Link>Content\Image 992 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 993 at frame 10.png">
+      <Link>Content\Image 993 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 994 at frame 10.png">
+      <Link>Content\Image 994 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\Image 995 at frame 10.png">
+      <Link>Content\Image 995 at frame 10.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\prisoner.png">
+      <Link>Content\prisoner.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\shotsitems.png">
+      <Link>Content\shotsitems.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\soldier.png">
+      <Link>Content\soldier.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\tank.png">
+      <Link>Content\tank.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Resources\truck.png">
+      <Link>Content\truck.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 347 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 348 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 349 at frame 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 350 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 351 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 352 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 353 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 354 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 355 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 356 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 357 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 358 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 359 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 360 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 361 at frame 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 362 at frame 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 363 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 364 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 365 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 366 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 367 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 368 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 369 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 370 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 371 at frame 10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 372 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 373 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 374 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 375 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 376 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 377 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 378 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Background\Image 379 at frame 10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\MarkerFelt-22.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\carnivorplant.plist">
+      <Link>Content\carnivorplant.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\explosives.plist">
+      <Link>Content\explosives.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\general.plist">
+      <Link>Content\general.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\hero.plist">
+      <Link>Content\hero.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\prisoner.plist">
+      <Link>Content\prisoner.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\shotsitems.plist">
+      <Link>Content\shotsitems.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\soldier.plist">
+      <Link>Content\soldier.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\tank.plist">
+      <Link>Content\tank.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Resources\truck.plist">
+      <Link>Content\truck.plist</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\control\button_pressed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\control\button_release.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\control\joystick_background.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\control\joystick_thumb.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\win32\CSExtensionKit.csproj">
+      <Project>{f1aa837c-c14b-46a1-8888-3b7eaba5f8f9}</Project>
+      <Name>CSExtensionKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
