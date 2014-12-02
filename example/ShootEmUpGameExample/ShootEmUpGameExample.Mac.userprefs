@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../../../md-addins/Xamarin.Designer/Xamarin.Designer.PropertyEditing/NativePropertyEntry.cs" line="25" offsetX="277" offsetY="360" expression="Property" liveUpdate="False" />
+    <Watch file="../../../../../md-addins/Xamarin.Designer.iOS/MonoTouch.Design.Client/IPhoneDesignerSurface.cs" line="243" offsetX="559" offsetY="3630" expression="selection" liveUpdate="False" />
+    <Watch file="../../../../../md-addins/Xamarin.Designer/external/xwt/Xwt/Xwt/Toolkit.cs" line="192" offsetX="320" offsetY="2430" expression="ex" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <DisabledProjects>
+    <String>win32/ShootEmUpGameExample.WindowsDX.csproj</String>
+  </DisabledProjects>
+</Properties>

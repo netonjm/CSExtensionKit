@@ -23,10 +23,6 @@ namespace CSExtensionKit
 		// 1) Update background position
 		public CCPoint BackgroundScrollVelocity = new CCPoint(-1000, 0);
 
-		public CSKSeuGameLayer(CCSize size) :base(size)
-		{
-
-		}
 
 		public CCSpriteBatchNode AddBatchSprite(string filename)
 		{

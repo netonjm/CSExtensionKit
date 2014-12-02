@@ -42,8 +42,7 @@ namespace CSExtensionKit
 			return MapSize.Width * TileSize.Width;
 		}
 
-		public CSKBeuGameLayer(string tileMapTmxFile, CCSize size)
-			: base(size)
+		public CSKBeuGameLayer(string tileMapTmxFile)
 		{
 			TileMapTmxFile = tileMapTmxFile;
 

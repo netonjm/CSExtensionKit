@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4923DD61-51D4-4D25-B91F-3184828D0DDB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -76,10 +74,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CocosSharp.Physics.WindowsDX.1.0.0.0\lib\net40\CocosSharp.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CocosSharp.Physics.WindowsDX.1.0.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CocosSharp.Physics.WindowsDX.1.0.0.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
@@ -118,6 +112,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\CocosSharp.Physics.WindowsDX.1.0.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Resources\level1.png">
@@ -187,12 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backgrounds\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\src\win32\CSExtensionKit.csproj">
-      <Project>{f1aa837c-c14b-46a1-8888-3b7eaba5f8f9}</Project>
-      <Name>CSExtensionKit</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

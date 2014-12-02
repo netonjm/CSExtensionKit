@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/CSKBeuGameLayer.cs">
+    <Files>
+      <File FileName="BeatEmUpGameExample/Entities/Hero.cs" Line="1" Column="1" />
+      <File FileName="BeatEmUpGameExample/Levels/StartLevelLayer.cs" Line="8" Column="8" />
+      <File FileName="BeatEmUpGameExample/Panels/CustomInfoLayer.cs" Line="2" Column="2" />
+      <File FileName="BeatEmUpGameExample/GameAppDelegate.cs" Line="1" Column="1" />
+      <File FileName="../ShootEmUpGameExample/ShootEmUpGameExample/GameAppDelegate.cs" Line="1" Column="1" />
+      <File FileName="../../src/CSExtensionKit/win32/GameLayers/CSKGameLayerBase.cs" Line="1" Column="1" />
+      <File FileName="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/CSKBeuGameLayer.cs" Line="4" Column="4" />
+      <File FileName="dddd/dddd.csproj" Line="1" Column="1" />
+      <File FileName="BeatEmUpGameExample/BeatEmUpGameExample.csproj" Line="1" Column="1" />
+      <File FileName="BeatEmUpGameExample/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="BeatEmUpGameExample/Levels/LoadingLayer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>dddd/dddd.csproj</String>
+  </DisabledProjects>
+</Properties>

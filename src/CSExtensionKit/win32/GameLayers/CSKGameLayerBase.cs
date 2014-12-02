@@ -83,11 +83,9 @@ namespace CSExtensionKit
 		/// <summary>
 		/// First Initial State. 
 		/// </summary>
-		public CSKGameLayerBase(CCSize size) :base (size)
+		public CSKGameLayerBase()
 		{
-            
-		   
-
+           
 			Shoots = new List<CCShootBase>();
 			Enemies = new List<CSKEnemy>();
 			EnemyShoots = new List<CCShootBase>();
@@ -185,9 +183,9 @@ namespace CSExtensionKit
 		/// </summary>
 		/// <param name="defaultText"></param>
 		/// <returns></returns>
-        public CCLabelTtf GetLabel(string defaultText = "")
+        public CCLabel GetLabel(string defaultText = "")
 		{
-			return new CCLabelTtf(defaultText, defaultFont, defaultFontSize);
+			return new CCLabel(defaultText, defaultFont, defaultFontSize);
 		}
 
 		/// <summary>

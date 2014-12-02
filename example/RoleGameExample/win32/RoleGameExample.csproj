@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8F5054DE-FC6A-4B4A-8AAE-6659ADA3BD3D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -54,10 +52,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\CocosSharp.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
@@ -96,6 +90,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\BeatEmUpGameExample\packages\CocosSharp.PCL.Shared.1.0.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Resources\meta_tiles.png">
@@ -147,12 +144,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\src\win32\CSExtensionKit.csproj">
-      <Project>{f1aa837c-c14b-46a1-8888-3b7eaba5f8f9}</Project>
-      <Name>CSExtensionKit</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
