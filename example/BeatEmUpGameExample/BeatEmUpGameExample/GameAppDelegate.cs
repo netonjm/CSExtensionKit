@@ -17,13 +17,11 @@ namespace BeatEmUpGameExample.Mac
 			application.ContentSearchPaths.Add ("sounds");
 
 			CCSize windowSize = mainWindow.WindowSizeInPixels;
-			mainWindow.SetDesignResolutionSize (windowSize.Width, windowSize.Height, CCSceneResolutionPolicy.ShowAll);
+			mainWindow.SetDesignResolutionSize (600, 320, CCSceneResolutionPolicy.ShowAll);
 
 			CCScene scene = new CCScene (mainWindow);
 			StartLevelLayer gameLayer = new StartLevelLayer ();
-
 			scene.AddChild (gameLayer);
-
 			mainWindow.RunWithScene (scene);
 		}
 

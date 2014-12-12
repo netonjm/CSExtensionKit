@@ -38,29 +38,26 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="SneakyJoystick">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\SneakyJoystick.MacOS.1.0.0.0\lib\net40\SneakyJoystick.dll</HintPath>
-    </Reference>
     <Reference Include="ChipmunkSharp">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\ChipmunkSharp.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\ChipmunkSharp.dll</HintPath>
     </Reference>
     <Reference Include="CocosSharp">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\CocosSharp.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\CocosSharp.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Lidgren.Network">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\Lidgren.Network.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Net">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.Net.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Tao.Sdl">
-      <HintPath>..\..\..\example\ShootEmUpGameExample\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\Tao.Sdl.dll</HintPath>
+      <HintPath>..\..\..\example\BeatEmUpGameExample\packages\CocosSharp.MacOS.1.2.1.0\lib\net40\Tao.Sdl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -92,18 +89,6 @@
     <Compile Include="Helpers\TextureHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\CCGameSettings.cs" />
-    <Compile Include="..\..\..\..\CSExtensions\CCDelayTimeEx\src\CCDelayTimeEx.cs">
-      <Link>Extensions\CCDelayTimeEx.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\CSExtensions\Helpers\src\CCPointExHelper.cs">
-      <Link>Extensions\CCPointExHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\CSExtensions\CCInfiniteBackground\src\CCInfiniteBackground.cs">
-      <Link>Extensions\CCInfiniteBackground.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\CSExtensions\CCInfiniteBackground\src\CCInfiniteTile.cs">
-      <Link>Extensions\CCInfiniteTile.cs</Link>
-    </Compile>
     <Compile Include="GameLayers\ShootEmUp\CSKSeuGameLayer.cs" />
     <Compile Include="GameLayers\ShootEmUp\CSKSeuIASystemBase.cs" />
   </ItemGroup>
@@ -116,7 +101,14 @@
   </Target>
   -->
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\..\..\..\CSExtensions\CocosSharpExtensionLibrary\src\CocosSharpExtensionLibrary\CocosSharpExtensionLibrary.csproj">
+      <Project>{308398BB-C237-466D-A651-82E66D86F946}</Project>
+      <Name>CocosSharpExtensionLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\cocos-sharp-samples\SneakyJoystick\src\SneakyJoystick\win32\SneakyJoystick.csproj">
+      <Project>{BE0688C9-5AA3-43A9-8E1D-D32C0313C8AB}</Project>
+      <Name>SneakyJoystick</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

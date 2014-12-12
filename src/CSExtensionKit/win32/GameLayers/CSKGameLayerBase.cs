@@ -24,7 +24,7 @@ namespace CSExtensionKit
 	/// This is the base GameLayer all GameLayers type inherits this. It has information about all player, enemies, controls and code base project.
 	/// In a future sure can split them.
 	/// </summary>
-	public class CSKGameLayerBase : CCLayerColor
+	public class CSKGameLayerBase : CCLayer
 	{
 
 		private string defaultFont = "MarkerFelt";
@@ -42,15 +42,8 @@ namespace CSExtensionKit
 		public List<CSKEnemy> Enemies;
 		public List<CCShootBase> EnemyShoots;
 
-		public CCSize wSize
-		{
-			get
-			{
-				return Window.WindowSizeInPixels;
-			}
-		}
 		//float scale = 1;
-		float setViewPercent = 0.25f;
+		float setViewPercent = 1f;
 
 		public bool IsTouchEnabled { get; set; }
 		public bool IsKeyboardEnabled { get; set; }
@@ -58,20 +51,10 @@ namespace CSExtensionKit
 		public const string EVENT_ENEMY_ID = "CCLevelLayerBase_EVENT_ENEMY";
 		public const string EVENT_PLAYER_ID = "CCLevelLayerBase_EVENT_PLAYER";
 
-		public void AddSpriteFrames(params string[] filename)
-		{
-			foreach (var item in filename)
-			{
-				CCSpriteFrameCache.SharedSpriteFrameCache.AddSpriteFrames(item);
-			}
-
-		}
-
 		public SneakyPanelControl controlPanelLayer { get; set; }
 
 		private CCEventListenerCustom SneakyJoystickListener;
 		private CCEventListenerCustom SneakyButtonListener;
-		//public CCEventListenerCustom PlayerListener;
 		public CCEventListenerCustom EnemyListener;
 		private CCEventListenerKeyboard KeyListener;
 
@@ -79,6 +62,14 @@ namespace CSExtensionKit
 		/// This layer is the info screen. All the statics objects like controls or player info goes here.
 		/// </summary>
 		public CCInformationPanelBase InformationLayer { get; set; }
+
+		public CCSize wSize
+		{
+			get
+			{
+				return Window.DesignResolutionSize;
+			}
+		}
 
 		/// <summary>
 		/// First Initial State. 
@@ -92,7 +83,13 @@ namespace CSExtensionKit
 			Players = new List<CSKPlayer>();
 		}
 
-
+		public void AddSpriteFrames(params string[] filename)
+		{
+			foreach (var item in filename)
+			{
+				CCSpriteFrameCache.SharedSpriteFrameCache.AddSpriteFrames(item);
+			}
+		}
 
 		/// <summary>
 		/// Second Initial State. Window screen objects
@@ -113,9 +110,9 @@ namespace CSExtensionKit
 			EnemyListener = new CCEventListenerCustom(EVENT_ENEMY_ID, OnEnemyShoot);
 			AddEventListener(EnemyListener, 1);
 
-
 			//SNEAKY JOYSTICK
-            controlPanelLayer = new SneakyPanelControl(2);
+			controlPanelLayer = new SneakyPanelControl(wSize, 2);
+			controlPanelLayer.Position = new CCPoint (70, 70);
 #if DEBUG
 			controlPanelLayer.IsDebug = true;
 #endif
@@ -299,7 +296,7 @@ namespace CSExtensionKit
 			int minX = (int)(wSize.Width + actor.centerToSides);
 			int maxX = (int)(GetMapTotalWidth() - actor.centerToSides);
 			int minY = (int)actor.centerToBottom; // ContentSize.Height;
-			int maxY = (int)(actor.Texture.ContentSizeInPixels.Height);
+			int maxY = (int)(actor.Texture.ContentSizeInPixels.Inverted.Height);
 
 			return CCPointExHelper.GetRandomPosition(wSize, minX, maxX, minY, maxY);
 		}
@@ -461,8 +458,6 @@ namespace CSExtensionKit
 
 		public void SetViewPointCenter(CCPoint position)
 		{
-
-
 			int x = (int)Math.Max(position.X, wSize.Width * setViewPercent);
 			int y = (int)Math.Max(position.Y, wSize.Height * setViewPercent);
 			x = (int)Math.Min(x, MapWith);

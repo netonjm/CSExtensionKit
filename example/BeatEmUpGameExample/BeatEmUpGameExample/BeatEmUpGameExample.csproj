@@ -64,7 +64,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
-    <Reference Include="XamMac" />
     <Reference Include="ChipmunkSharp">
       <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\ChipmunkSharp.dll</HintPath>
     </Reference>
@@ -86,9 +85,7 @@
     <Reference Include="Tao.Sdl">
       <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\Tao.Sdl.dll</HintPath>
     </Reference>
-    <Reference Include="SneakyJoystick">
-      <HintPath>..\packages\SneakyJoystick.MacOS.1.0.0.0\lib\net40\SneakyJoystick.dll</HintPath>
-    </Reference>
+    <Reference Include="XamMac, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -203,6 +200,10 @@
     <ProjectReference Include="..\..\..\src\CSExtensionKit\win32\CSExtensionKit.Mac.csproj">
       <Project>{F1AA837C-C14B-46A1-8888-3B7EABA5F8F9}</Project>
       <Name>CSExtensionKit.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\cocos-sharp-samples\SneakyJoystick\src\SneakyJoystick\win32\SneakyJoystick.csproj">
+      <Project>{BE0688C9-5AA3-43A9-8E1D-D32C0313C8AB}</Project>
+      <Name>SneakyJoystick</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
