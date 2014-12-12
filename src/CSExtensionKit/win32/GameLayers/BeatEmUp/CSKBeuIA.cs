@@ -18,7 +18,6 @@ namespace CSExtensionKit
 	{
 
 		public CSKBeuGameLayer layer { get; set; }
-
 		public const string EVENT_IA_PLAYER_HURTS = "IA_PLAYER_HURTS";
 
 		public CSKBeuIA(CSKBeuGameLayer layer)
@@ -56,13 +55,10 @@ namespace CSExtensionKit
 
 			if (enemy.actionState != ActionState.KnockedOut)
 			{
-
 				if (enemy.HasPassedDecisionTime())
 				{
-
 					CCPoint pos = player.Position;
 					//distanceSQ = enemy.Position.DistanceSQ(ref pos);
-
 					distanceSQ = enemy.DistanceSQ(player);
 
 					//3
@@ -72,13 +68,10 @@ namespace CSExtensionKit
 
 						RandomChoice(rnd =>
 						{
-
-
 							if (rnd)
 								enemy.idle();
 							else
 							{
-
 								if (player.IsOnRight(enemy))
 									enemy.SetFlip(true);
 								else
@@ -86,7 +79,6 @@ namespace CSExtensionKit
 
 								//4
 								enemy.attack();
-
 								if (enemy.actionState == ActionState.Attack)
 								{
 									if (Math.Abs(player.PositionY - enemy.PositionY) < 10)
@@ -96,20 +88,13 @@ namespace CSExtensionKit
 											CCEventCustom eventHurts = new CCEventCustom(EVENT_IA_PLAYER_HURTS, enemy);
 											if (layer != null)
 												layer.DispatchEvent(eventHurts);
-
 										}
 									}
 								}
-
 							}
-
-
 						});
 
 						randomChoice = CCRandom.GetRandomInt(0, 1);
-
-
-
 					}
 					else if (distanceSQ <= wSize.Width * wSize.Width)
 					{

@@ -6,8 +6,7 @@ using System.Text;
 
 namespace CSExtensionKit
 {
-    public class CCInformationPanelBase : CCNode
+	public class CCInformationPanelBase : CCLayer
     {
-
     }
 }

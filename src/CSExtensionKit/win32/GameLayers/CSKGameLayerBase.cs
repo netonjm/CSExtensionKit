@@ -26,16 +26,11 @@ namespace CSExtensionKit
 	/// </summary>
 	public class CSKGameLayerBase : CCLayer
 	{
-
 		private string defaultFont = "MarkerFelt";
 		private int defaultFontSize = 22;
-
 		public CSKIaSystemBase IASystem { get; set; }
-
 		public int EnemyKills;
-
 		public List<CSKPlayer> Players;
-
 		public CSKPlayer Player;
 
 		public List<CCShootBase> Shoots;
@@ -50,7 +45,6 @@ namespace CSExtensionKit
 
 		public const string EVENT_ENEMY_ID = "CCLevelLayerBase_EVENT_ENEMY";
 		public const string EVENT_PLAYER_ID = "CCLevelLayerBase_EVENT_PLAYER";
-
 		public SneakyPanelControl controlPanelLayer { get; set; }
 
 		private CCEventListenerCustom SneakyJoystickListener;
@@ -76,7 +70,6 @@ namespace CSExtensionKit
 		/// </summary>
 		public CSKGameLayerBase()
 		{
-           
 			Shoots = new List<CCShootBase>();
 			Enemies = new List<CSKEnemy>();
 			EnemyShoots = new List<CCShootBase>();
@@ -98,9 +91,13 @@ namespace CSExtensionKit
 		protected override void AddedToScene()
 		{
 			base.AddedToScene();
+			//We need to reposition the item
 
             InformationLayer = new CCInformationPanelBase();
-			Scene.AddChild(InformationLayer, 99999);
+			//Scene.AddChild(InformationLayer, 99999);
+			//InformationLayer.ContentSize = wSize;
+
+			//InformationLayer.Position = -wSize.Center;
 
 			//Player Shoot events
 			//PlayerListener = new CCEventListenerCustom(EVENT_PLAYER_ID, OnPlayerShoot);
@@ -112,13 +109,13 @@ namespace CSExtensionKit
 
 			//SNEAKY JOYSTICK
 			controlPanelLayer = new SneakyPanelControl(wSize, 2);
-			controlPanelLayer.Position = new CCPoint (70, 70);
 #if DEBUG
 			controlPanelLayer.IsDebug = true;
 #endif
-			InformationLayer.AddChild(controlPanelLayer, 9999);
-		}
+			Scene.AddChild(controlPanelLayer, 9999);
 
+
+		}
 
 		/// <summary>
 		/// Third Initial State.
@@ -147,9 +144,9 @@ namespace CSExtensionKit
 						default:
 							break;
 					}
-
 				}
 			});
+
 			AddEventListener(SneakyJoystickListener, 1);
 
 			SneakyButtonListener = new CCEventListenerCustom(SneakyPanelControl.BUTTON_LISTENER_ID, (customEvent) =>
@@ -159,7 +156,6 @@ namespace CSExtensionKit
 				{
 					OnJoyStickButtonPressed(response.ResponseType, response.ID);
 				}
-
 			});
 
 			AddEventListener(SneakyButtonListener, 1);
@@ -230,7 +226,6 @@ namespace CSExtensionKit
 		/// <param name="initialPosition">Player initial position</param>
 		public virtual CSKPlayer InitializePlayer(CSKPlayer player, CCNode container, CCPoint initialPosition)
 		{
-
 			if (Players.Exists((p) => p == player))
 			{
 				Console.WriteLine("CANNOT ADD PLAYER. ITS ON LAYER");
@@ -238,18 +233,12 @@ namespace CSExtensionKit
 			}
 
 			CCGameSettingsBase.Instance.Player1 = player.klass; //TODO: ARRAY DE PLAYERS
-
 			player.desiredPosition = player.Position;
 			player.idle();
-
 			Players.Add(player); //Add to players array
-
 			Player = player;
-
 			container.AddChild(player);
-
 			//AddChild(player, (int)eTAG_DEPTH.PLAYER_LAYER);
-
 			player.Position = initialPosition;
 
 			Console.WriteLine("PLAYER 1 ADDED TO SHIP LAYER");
@@ -277,10 +266,8 @@ namespace CSExtensionKit
 			enemy.Position = initialPosition;
 			enemy.ScaleX = -1;
 			enemy.actionState = ActionState.Idle;
-
 			enemy.desiredPosition = enemy.Position;
 			enemy.idle();
-
 			container.AddChild(enemy);
 			Enemies.Add(enemy);
 			return enemy;
@@ -297,10 +284,8 @@ namespace CSExtensionKit
 			int maxX = (int)(GetMapTotalWidth() - actor.centerToSides);
 			int minY = (int)actor.centerToBottom; // ContentSize.Height;
 			int maxY = (int)(actor.Texture.ContentSizeInPixels.Inverted.Height);
-
 			return CCPointExHelper.GetRandomPosition(wSize, minX, maxX, minY, maxY);
 		}
-
 
 		/// <summary>
 		/// Is executed when the player press a SneakyJoystick button.
@@ -309,7 +294,6 @@ namespace CSExtensionKit
 		/// <param name="id">Button Id pressed</param>
 		public virtual void OnJoyStickButtonPressed(SneakyButtonStatus status, int id)
 		{
-
 		}
 
 		/// <summary>
@@ -317,7 +301,6 @@ namespace CSExtensionKit
 		/// </summary>
 		public virtual void OnJoyStickEndMove()
 		{
-
 		}
 
 		/// <summary>
@@ -326,7 +309,6 @@ namespace CSExtensionKit
 		/// <param name="direction">Gets users point direction</param>
 		public virtual void OnJoyStickMove(CCPoint direction)
 		{
-
 		}
 
 		/// <summary>
@@ -334,16 +316,13 @@ namespace CSExtensionKit
 		/// </summary>
 		public virtual void OnJoyStickStartMove()
 		{
-
 		}
 
 		public void InitializeKeyboard()
 		{
-
 			KeyListener = new CCEventListenerKeyboard();
 			KeyListener.OnKeyPressed = OnKeyPressed;
 			KeyListener.OnKeyReleased = OnKeyReleased;
-
 		}
 
 		/// <summary>
@@ -352,7 +331,6 @@ namespace CSExtensionKit
 		/// <param name="obj"></param>
 		public virtual void OnEnemyShoot(CCEventCustom obj)
 		{
-
 		}
 
 		/// <summary>
@@ -361,7 +339,6 @@ namespace CSExtensionKit
 		/// <param name="obj"></param>
 		public virtual void OnPlayerShoot(CCEventCustom obj)
 		{
-
 		}
 
 		public virtual float GetMapTotalHeight()
@@ -398,11 +375,9 @@ namespace CSExtensionKit
 			}
 		}
 
-
 		public override void Update(float dt)
 		{
 			base.Update(dt);
-
 			var mapTotalSize = GetMapTotalSize();
 			var mapMaxTop = GetMaxTop();
 
@@ -431,7 +406,6 @@ namespace CSExtensionKit
 		public override void OnExit()
 		{
 			base.OnExit();
-
 			this.RemoveEventListener(SneakyJoystickListener);
 			this.RemoveEventListener(SneakyButtonListener);
 			this.RemoveEventListener(KeyListener);
@@ -442,7 +416,6 @@ namespace CSExtensionKit
 
 		public void reorderActors()
 		{
-
 			foreach (var item in Players)
 				ReorderChild(item, (int)(wSize.Height - item.PositionY));
 
@@ -483,35 +456,24 @@ namespace CSExtensionKit
 			return String.Format("{0}", EnemyKills);
 		}
 
-
 		public virtual void Reset()
 		{
-
 			//TODO: IMPLEMENT RESET
-
 			//layers.Reset();
 			//lock (Enemies)
 			//{
 			//    Shoots.Clear();
 			//}
-
 			//RemoveAllChildren();
-
 			//lock (Enemies)
 			//{
 			//    Enemies.Clear();
 			//}
-
 			//foreach (var player in Players)
 			//{
 			//    player.Reset();
 			//}
-
 			EnemyKills = 0;
-
 		}
-
-
-
 	}
 }

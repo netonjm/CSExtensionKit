@@ -12,13 +12,9 @@ namespace BeatEmUpGameExample
 {
 	public class StartLevelLayer : CSKBeuGameLayer
 	{
-
 		public int ROBOTS = 10;
-
 		CCSpriteBatchNode actors;
-
 		Hero hero;
-
 		CCLabel kills;
 		CCLabel life;
 
@@ -35,7 +31,7 @@ namespace BeatEmUpGameExample
 		protected override void AddedToScene()
 		{
 			base.AddedToScene();
-
+			ContentSize = wSize;
 			SetDefaultFont("MarkerFelt", 22); //Add de default font
 
 			//Add sprite batch
@@ -54,8 +50,6 @@ namespace BeatEmUpGameExample
 			InformationLayer.AddChild(kills);
 		}
 
-
-
 		public override void OnEnter()
 		{
 			base.OnEnter();
@@ -71,13 +65,11 @@ namespace BeatEmUpGameExample
 			AddChild(life);
 
 			//Initialization Enemies
-
 			for (int i = 0; i < ROBOTS; i++)
 				InitializeEnemy(new Robot(), actors);
 
 			controlPanelLayer.ScaleX = controlPanelLayer.ScaleY = .7f;
 			controlPanelLayer.JoyControl.Position = new CCPoint(-10, -10);
-
 			SetViewPointCenter(hero.Position);
 
 			Schedule();
@@ -98,7 +90,6 @@ namespace BeatEmUpGameExample
 		public override void Update(float dt)
 		{
 			base.Update(dt);
-
 			//Life 
 			life.Position = hero.GetLifePosition(LifePosition.Up);
 			life.Text = hero.hitPoints.ToString();
@@ -113,21 +104,16 @@ namespace BeatEmUpGameExample
 		public override void OnPlayerHurt(float damage)
 		{
 			base.OnPlayerHurt(damage);
-
 			hero.hurtWithDamage(damage);
-
 			if (hero.actionState == ActionState.KnockedOut && GetChildByTag(5) == null)
 			{
 				Endgame();
 			}
-
 		}
 
 		public override void OnEnemyShoot(CCEventCustom obj)
 		{
-			//Se debería pasar el ataque del monstruo más el CCEnemy
 			//LOGIC ON ENEMY SHOOT -> Obj.UserData sends the enemy who fired
-
 		}
 
 		private void HeroAttack()
@@ -138,10 +124,8 @@ namespace BeatEmUpGameExample
 			if (hero.actionState == ActionState.Attack)
 			{
 				CCRect attackBox = hero.AbsoluteAttackBoxRect;
-
 				foreach (var robot in Enemies)
 				{
-
 					if (robot.actionState == ActionState.KnockedOut)
 						continue;
 
@@ -150,7 +134,6 @@ namespace BeatEmUpGameExample
 						if (attackBox.IntersectsRect(robot.AbsoluteHitBoxRect))
 						{
 							robot.hurtWithDamage(hero.damage);
-
 							if (robot.actionState == ActionState.KnockedOut)
 							{
 								DeadRobot();
@@ -186,8 +169,6 @@ namespace BeatEmUpGameExample
 		{
 			//Director.ReplaceScene(LoadingLayer.Scene);
 		}
-
-
 
 		#region JOYSTICK EVENTS
 
@@ -252,12 +233,6 @@ namespace BeatEmUpGameExample
 		}
 
 #endif
-
-	
 	}
-
-
-
-
 }
 
