@@ -1,4 +1,4 @@
-﻿<Properties>
+﻿<Properties StartupItem="mac/CSExtensionKit.Mac.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

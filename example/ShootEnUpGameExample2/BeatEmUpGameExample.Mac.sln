@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeatEmUpGameExample", "BeatEmUpGameExample\BeatEmUpGameExample.csproj", "{4CB2DF12-A547-4B6D-A96C-903452912FCE}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSExtensionKit.Mac", "..\..\src\CSExtensionKit\win32\CSExtensionKit.Mac.csproj", "{F1AA837C-C14B-46A1-8888-3B7EABA5F8F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakyJoystick", "..\..\..\cocos-sharp-samples\SneakyJoystick\src\SneakyJoystick\win32\SneakyJoystick.csproj", "{BE0688C9-5AA3-43A9-8E1D-D32C0313C8AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeatEmUpGameExample", "mac\BeatEmUpGameExample.csproj", "{4CB2DF12-A547-4B6D-A96C-903452912FCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

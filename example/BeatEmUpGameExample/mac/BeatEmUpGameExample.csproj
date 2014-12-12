@@ -26,6 +26,7 @@
     <CodeSigningKey>Mac Developer</CodeSigningKey>
     <EnableCodeSigning>false</EnableCodeSigning>
     <CreatePackage>false</CreatePackage>
+    <UseRefCounting>false</UseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -41,6 +42,7 @@
     <CodeSigningKey>Developer ID Application</CodeSigningKey>
     <EnableCodeSigning>true</EnableCodeSigning>
     <CreatePackage>true</CreatePackage>
+    <UseRefCounting>false</UseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -57,6 +59,7 @@
     <CodeSigningKey>3rd Party Mac Developer Application</CodeSigningKey>
     <EnableCodeSigning>true</EnableCodeSigning>
     <EnablePackageSigning>true</EnablePackageSigning>
+    <UseRefCounting>false</UseRefCounting>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,27 +68,26 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="ChipmunkSharp">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\ChipmunkSharp.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\ChipmunkSharp.dll</HintPath>
     </Reference>
     <Reference Include="CocosSharp">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\CocosSharp.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\CocosSharp.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Lidgren.Network">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\Lidgren.Network.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Net">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.Net.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Tao.Sdl">
-      <HintPath>..\packages\CocosSharp.MacOS.1.2.0.0\lib\net40\Tao.Sdl.dll</HintPath>
+      <HintPath>..\packages\CocosSharp.Physics.MacOS.1.2.0.0\lib\net40\Tao.Sdl.dll</HintPath>
     </Reference>
-    <Reference Include="XamMac, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

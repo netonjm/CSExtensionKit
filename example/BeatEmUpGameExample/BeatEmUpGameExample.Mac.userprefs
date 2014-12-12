@@ -1,20 +1,19 @@
-﻿<Properties>
+﻿<Properties StartupItem="mac/BeatEmUpGameExample.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeatEmUpGameExample/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/Entities/CSKEnemy.cs">
     <Files>
-      <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyButtonControl.cs" Line="29" Column="29" />
-      <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyJoystickControl.cs" Line="3" Column="3" />
+      <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyButtonControl.cs" Line="1" Column="1" />
+      <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyJoystickControl.cs" Line="1" Column="1" />
       <File FileName="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/Entities/CSKPlayer.cs" Line="1" Column="1" />
       <File FileName="../../src/CSExtensionKit/win32/Entities/CCPlayerBase.cs" Line="1" Column="1" />
       <File FileName="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/CSKBeuGameLayer.cs" Line="1" Column="1" />
       <File FileName="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/CSKBeuIA.cs" Line="1" Column="1" />
-      <File FileName="../../src/CSExtensionKit/win32/GameLayers/CSKGameLayerBase.cs" Line="1" Column="1" />
-      <File FileName="BeatEmUpGameExample/GameAppDelegate.cs" Line="1" Column="1" />
-      <File FileName="BeatEmUpGameExample/Levels/StartLevelLayer.cs" Line="1" Column="1" />
+      <File FileName="../../src/CSExtensionKit/win32/GameLayers/CSKGameLayerBase.cs" Line="294" Column="52" />
       <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyPanelControl.cs" Line="1" Column="1" />
       <File FileName="../../src/CSExtensionKit/win32/GameLayers/CSKIaSystemBase.cs" Line="1" Column="1" />
       <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/SneakyButtonControlSkinnedBase.cs" Line="1" Column="1" />
-      <File FileName="BeatEmUpGameExample/AppDelegate.cs" Line="7" Column="7" />
+      <File FileName="../../../cocos-sharp-samples/SneakyJoystick/src/SneakyJoystick/Common/ColoredCircleSprite.cs" Line="1" Column="1" />
+      <File FileName="../../src/CSExtensionKit/win32/GameLayers/BeatEmUp/Entities/CSKEnemy.cs" Line="6" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
